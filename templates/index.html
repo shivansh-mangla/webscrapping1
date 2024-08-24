@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='general.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="last-update">
+            <h1>Hello!! Last updated at: {% for data in last_update %} {{data['time']}} {% endfor %}</h1>
+        </div>
+        
+        <br>
+        <h1>News Data-</h1>
+        <div class="news-data-container">
+            {% for data in news_data %}
+            <div class="news-container">
+                <h2>{{data.headline}}</h2>
+                <br>
+                <a href="{{data['link']}}" target="_blank">LINK FOR FULL NEWS</a>
+            </div>
+            {% endfor %}
+        </div>
+
+        <h1>Jobs Data-</h1>
+        <div class="jobs-data-container">
+            {% for data in jobs_data %}
+            <div class="jobs-container">
+                <h2>Title: <span>{{data.title}}</span></h2>
+                <h4>Company: <span>{{data.company}}</span></h4>
+                <br>
+                <a href="{{data['link']}}" target="_blank">LINK FOR FULL JOB</a>
+            </div>
+            {% endfor %}
+        </div>
+
+        <br>
+        <br>
+        <p>Made By Shivansh</p>
+    </div>
+</body>
+</html>
