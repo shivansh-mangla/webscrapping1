@@ -14,7 +14,7 @@ def load_data():
         print("Connection Established Successfully!!")
     except:
         print("Couldnt establish connection...")
-        return None, None, None
+        return [], [], []
 
     print("Retrieving the data...")
     try:
@@ -23,6 +23,6 @@ def load_data():
         last_update = list(last_update.find())
     except:
         print("Data Retrieval Failed!!")
-        return None, None, None
+        return [], [], []
     print("Data Retrieval Successfull!!")
     return news_data, jobs_data, last_update
